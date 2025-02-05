@@ -29,7 +29,7 @@ Before you begin, ensure you have the following installed:
 ## Setup and Installation
 ### 1. Clone the Repository
 ```bash
-git clone [repository-url]
+git clone [https://github.com/Vaibhavg232/project_conversation.git]
 cd [project-directory]
 ```
 
@@ -49,8 +49,6 @@ rails db:migrate
 ```bash
 rails server
 ```
-
-Visit [`http://localhost:3000`](http://localhost:3000) to access the application.
 
 ## Project Structure
 The key components of the application include:
