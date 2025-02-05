@@ -4,4 +4,4 @@ FactoryBot.define do
     description { "Test project description" }
     current_status { "pending" }
   end
-end 
+end

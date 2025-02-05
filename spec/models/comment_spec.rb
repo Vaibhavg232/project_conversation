@@ -10,4 +10,4 @@ RSpec.describe Comment, type: :model do
     it { should belong_to(:parent).optional }
     it { should have_many(:replies).class_name('Comment').with_foreign_key('parent_id') }
   end
-end 
+end

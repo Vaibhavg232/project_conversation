@@ -2,7 +2,7 @@
 
 class ProjectShowComponent < ViewComponent::Base
   include Rails.application.routes.url_helpers
-  
+
   attr_reader :project
 
   def initialize(project:)
@@ -11,12 +11,12 @@ class ProjectShowComponent < ViewComponent::Base
 
   def status_classes
     case project.current_status
-    when 'completed'
-      'bg-green-100 text-green-800 border border-green-200'
-    when 'in_progress'
-      'bg-blue-100 text-blue-800 border border-blue-200'
+    when "completed"
+      "bg-green-100 text-green-800 border border-green-200"
+    when "in_progress"
+      "bg-blue-100 text-blue-800 border border-blue-200"
     else
-      'bg-yellow-100 text-yellow-800 border border-yellow-200'
+      "bg-yellow-100 text-yellow-800 border border-yellow-200"
     end
   end
 
@@ -27,4 +27,4 @@ class ProjectShowComponent < ViewComponent::Base
   def default_url_options
     Rails.application.routes.default_url_options
   end
-end 
+end

@@ -36,7 +36,7 @@ gem "bootsnap", require: false
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 
-gem 'slim-rails'
+gem "slim-rails"
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
@@ -54,17 +54,17 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem 'pry', '~> 0.15.0'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers'  # For testing validations and associations
-  gem 'rails-controller-testing'  # For testing assigns and templates
+  gem "pry", "~> 0.15.0"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "shoulda-matchers"  # For testing validations and associations
+  gem "rails-controller-testing"  # For testing assigns and templates
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'listen', '~> 3.7'
+  gem "listen", "~> 3.7"
 end
 
 group :test do
@@ -73,6 +73,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'tailwindcss-rails'
+gem "tailwindcss-rails"
 
-gem 'view_component', '~> 3.0'
+gem "view_component", "~> 3.0"

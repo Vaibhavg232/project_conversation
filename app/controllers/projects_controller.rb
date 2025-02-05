@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :add_comment, :change_status]
+  before_action :set_project, only: [ :show, :edit, :update, :destroy, :add_comment, :change_status ]
 
   def index
     @projects = Project.all
@@ -66,23 +66,23 @@ class ProjectsController < ApplicationController
         format.turbo_stream do
           if @new_comment.parent_id.present?
             render turbo_stream: [
-              turbo_stream.append("replies_#{@new_comment.parent_id}", 
-                partial: "reply", 
+              turbo_stream.append("replies_#{@new_comment.parent_id}",
+                partial: "reply",
                 locals: { reply: @new_comment }),
-              turbo_stream.update("reply_form_#{@new_comment.parent_id}", 
-                partial: "reply_form", 
+              turbo_stream.update("reply_form_#{@new_comment.parent_id}",
+                partial: "reply_form",
                 locals: { comment: @new_comment.parent, project: @project }),
-              turbo_stream.update("new_comment_form", 
-                partial: "comment_form", 
+              turbo_stream.update("new_comment_form",
+                partial: "comment_form",
                 locals: { new_comment: Comment.new, project: @project })
             ]
           else
             render turbo_stream: [
-              turbo_stream.append("conversation_items", 
-                partial: "comment", 
+              turbo_stream.append("conversation_items",
+                partial: "comment",
                 locals: { comment: @new_comment }),
-              turbo_stream.update("new_comment_form", 
-                partial: "comment_form", 
+              turbo_stream.update("new_comment_form",
+                partial: "comment_form",
                 locals: { new_comment: Comment.new, project: @project })
             ]
           end
@@ -96,11 +96,11 @@ class ProjectsController < ApplicationController
   def change_status
     @new_status_change = @project.status_changes.new(status_change_params)
     @new_status_change.old_status = @project.current_status
-    
+
     if @new_status_change.save
       @project.project_events.create!(eventable: @new_status_change)
       @project.update!(current_status: @new_status_change.new_status)
-      
+
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: [
@@ -120,7 +120,7 @@ class ProjectsController < ApplicationController
   def conversation_history
     project_events
       .includes(:eventable)
-      .where.not(eventable_type: 'Comment', eventable: { parent_id: present? })
+      .where.not(eventable_type: "Comment", eventable: { parent_id: present? })
       .order(created_at: :desc)
   end
 

@@ -20,7 +20,7 @@ RSpec.describe Project, type: :model do
     let!(:new_event) { create(:project_event, project: project, eventable: new_comment, created_at: Time.current) }
 
     it 'returns events in chronological order' do
-      expect(project.conversation_history).to eq([old_event, new_event])
+      expect(project.conversation_history).to eq([ old_event, new_event ])
     end
   end
-end 
+end

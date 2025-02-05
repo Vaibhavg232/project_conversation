@@ -9,4 +9,4 @@ RSpec.describe StatusChange, type: :model do
   describe 'associations' do
     it { should belong_to(:project) }
   end
-end 
+end

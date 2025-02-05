@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   let(:project) { create(:project) }
-  
+
   let(:valid_attributes) {
     {
       title: "Test Project",
@@ -28,7 +28,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe "GET #show" do
     let(:project) { create(:project) }
-    
+
     before do
       # Create a comment to ensure conversation events exist
       comment = create(:comment, project: project)
@@ -121,11 +121,11 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe "POST #change_status" do
     let(:project) { Project.create!(valid_attributes) }
-    let(:valid_status_params) { 
-      { 
+    let(:valid_status_params) {
+      {
         old_status: project.current_status,
         new_status: "in_progress"
-      } 
+      }
     }
 
     context "with valid parameters" do
@@ -172,4 +172,4 @@ RSpec.describe ProjectsController, type: :controller do
       end
     end
   end
-end 
+end

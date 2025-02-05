@@ -73,7 +73,7 @@ Rails.application.configure do
   # Enable build commands
   config.assets.debug = true
   config.assets.quiet = true
-  
+
   # Watch additional paths for live reloading
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end

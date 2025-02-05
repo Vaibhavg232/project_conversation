@@ -5,4 +5,4 @@ class AddIndexesToComments < ActiveRecord::Migration[8.0]
     add_foreign_key :comments, :projects
     add_foreign_key :comments, :comments, column: :parent_id
   end
-end 
+end

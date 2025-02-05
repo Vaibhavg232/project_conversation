@@ -4,4 +4,4 @@ FactoryBot.define do
     new_status { "in_progress" }
     association :project
   end
-end 
+end
