@@ -1,0 +1,25 @@
+.container.mx-auto.max-w-4xl.px-4.py-8
+  .bg-white.rounded-lg.shadow-lg.p-6.mb-8
+    h1.text-3xl.font-bold.text-gray-800.mb-4 New Project
+    
+    = form_with model: @project, 
+                id: "new_project",
+                data: { controller: "form", action: "submit->form#handleSubmit" } do |f|
+      .mb-4
+        = f.label :title, class: "block text-gray-700 text-sm font-bold mb-2"
+        = f.text_field :title, class: "w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-400"
+      
+      .mb-4
+        = f.label :description, class: "block text-gray-700 text-sm font-bold mb-2"
+        = f.text_area :description, rows: 4, class: "w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-400"
+      
+      .mb-4
+        = f.label :current_status, class: "block text-gray-700 text-sm font-bold mb-2"
+        = f.select :current_status, 
+                  options_for_select([['Pending', 'pending'], ['In Progress', 'in_progress'], ['Completed', 'completed']], 'pending'),
+                  {}, 
+                  class: "w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-400"
+      
+      .flex.justify-end.gap-4
+        = link_to "Cancel", projects_path, class: "px-4 py-2 text-gray-600 hover:text-gray-800"
+        = f.submit "Create Project", class: "px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-sm hover:shadow" 

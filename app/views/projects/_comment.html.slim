@@ -1,0 +1,10 @@
+div class="comment-#{comment.id} bg-white rounded-lg p-4 shadow-sm hover:shadow-md border-l-4 border-blue-500 transition-all duration-200"
+  div.comment-content.mb-3
+    p.text-gray-900.font-medium = comment.body
+  div.replies-container.ml-6.mt-4
+    ul id="replies_#{comment.id}" class="space-y-3"
+      - comment.replies.order(created_at: :asc).each do |reply|
+        = render "reply", reply: reply
+
+  div.reply-form.mt-4.ml-6 id="reply_form_#{comment.id}"
+    = render "reply_form", comment: comment, project: @project
