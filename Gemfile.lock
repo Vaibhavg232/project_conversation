@@ -327,6 +327,7 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
+    ruby (0.1.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
@@ -448,6 +449,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   rubocop-rails-omakase
+  ruby
   selenium-webdriver
   shoulda-matchers
   slim-rails
